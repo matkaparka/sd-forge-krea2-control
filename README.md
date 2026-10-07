@@ -132,4 +132,4 @@ Lowering the weight to 0.5–0.6 reduces the artifact but loosens the structure.
 - Model forward ported from Forge Neo `backend/nn/krea.py` (AGPL-3.0, Haoming02) and [ostris/comfyui-krea2-ostris-edit](https://github.com/ostris/comfyui-krea2-ostris-edit) (MIT).
 - Canny recipe from [Nynxz/NK2E](https://github.com/Nynxz/NK2E).
 - Pose LoRA by [thedeoxen](https://huggingface.co/thedeoxen/Krea-2-pose-controlnet); canny LoRA by [Nynxz](https://huggingface.co/nynxz/NK2E).
-- This extension: AGPL-3.0. The LoRAs and Krea 2 keep their own licenses.
+- This extension: Copyright (c) 2026 matkaparka, AGPL-3.0 (see [LICENSE](LICENSE)). The LoRAs and Krea 2 keep their own licenses.

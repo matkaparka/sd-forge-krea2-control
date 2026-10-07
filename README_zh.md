@@ -138,4 +138,4 @@ NK2E canny LoRA（权重 0.7）配合**高清修复**时，边缘图会以浅色
 - 模型前向移植自 Forge Neo `backend/nn/krea.py`（AGPL-3.0，Haoming02）与 [ostris/comfyui-krea2-ostris-edit](https://github.com/ostris/comfyui-krea2-ostris-edit)（MIT）。
 - Canny 参数来自 [Nynxz/NK2E](https://github.com/Nynxz/NK2E)。
 - Pose LoRA 作者 [thedeoxen](https://huggingface.co/thedeoxen/Krea-2-pose-controlnet)，Canny LoRA 作者 [Nynxz](https://huggingface.co/nynxz/NK2E)。
-- 本扩展以 AGPL-3.0 发布，LoRA 和 Krea 2 遵循各自的许可。
+- 本扩展：Copyright (c) 2026 matkaparka，以 AGPL-3.0 发布（见 [LICENSE](LICENSE)）。LoRA 和 Krea 2 遵循各自的许可。
