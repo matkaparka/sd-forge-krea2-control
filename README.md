@@ -89,7 +89,7 @@ Keep **Settings → Stable Diffusion → [Krea2] Enable Reference** OFF, and don
 - Each LoRA keeps the conditioning it was trained with: OpenPose uses the Reference Method above (default: its reference runs once at t=0 and its K/V are extra attention keys), Canny uses Joint, current t (its edge tokens are appended to the sequence). The pose map still goes through Qwen3-VL; the edge map does not (NK2E was trained with a text-only encoder).
 - Both LoRAs are added to the prompt and have to be two different files. If one of them fails (no image, unknown LoRA...) the job is interrupted before anything is added to the prompt.
 - The default LoRA of each type is only pre-selected when its file name fits (OpenPose: `krea` and `pose`; Canny: `nk2e` and `canny`), so another model's LoRA with a similar name is not picked by mistake.
-- **Not known:** how the pictures look. Neither author trained or tested for stacking two control LoRAs, and this combination has not been run on a GPU. Start with lower weights (e.g. 0.6 / 0.5).
+- Neither author trained or tested stacking two control LoRAs. Running both at once has been tried on a GPU and works; how it looks can still depend on the weights and the checkpoint. If the two fight each other, lower the weights (e.g. 0.6 / 0.5).
 - What *is* verified is the model code: every pair of methods matches an independent implementation, see [Verification](#verification).
 
 ## Known issues
@@ -125,7 +125,7 @@ Lowering the weight to 0.5–0.6 reduces the artifact but loosens the structure.
   - coverage: batch 1/2, 4D/5D input, odd sizes, reference resizing, K/V reuse (also when the frame indices change) and offload; a one-element list is bit-identical to the single-reference call.
 - `tests/test_script.py` (61 checks) runs the panel on Forge's real modules with the real small Krea2 DiT and a fake engine / VAE: panel construction (unique labels, non-exclusive Control Type), each type alone and both together, the conditioning patch and its cleanup, shared / own / img2img images, Hires. fix, every failure path (nothing ticked, same LoRA twice, an unknown LoRA never leaves the other one's tag in the prompt).
 - Checked earlier against Forge's real modules (0.1.0): Qwen3-VL token layout, identical token-for-token to Ostris' node; Forge's DWPose preprocessor.
-- Real-GPU use so far: Canny mode on its own. OpenPose reports are welcome, and using both at once has not been run on a GPU. Logs start with `Krea2 Control`.
+- Real-GPU use so far: Canny on its own, and OpenPose + Canny at once; both work. Reports are welcome. Logs start with `Krea2 Control`.
 
 ## Credits and license
 
